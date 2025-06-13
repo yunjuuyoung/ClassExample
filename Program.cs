@@ -36,8 +36,14 @@ namespace ClassExample
             }
         }
 
+        public static int number = 10;
         static void Main(string[] args)
         {
+            // 섀도잉
+            int number = 20;
+            Console.WriteLine(number);
+            Console.WriteLine(Program.number);
+
             Child child1 = new Child("abc");
             Child child2 = new Child();
 
