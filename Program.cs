@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassExample
 {
@@ -10,6 +6,11 @@ namespace ClassExample
     {
         class Parent
         {
+            public static int counter = 0;
+            public void CountParent()
+            {
+                Parent.counter++;
+            }
             public Parent() { Console.WriteLine("부모 생성자"); }
             public Parent(string name) { Console.WriteLine("Parent(string name)"); }
             public Parent(int param) { Console.WriteLine("Parent(int param)"); }
@@ -17,6 +18,10 @@ namespace ClassExample
 
         private class Child: Parent
         {
+            public void CountChild()
+            {
+                Parent.counter++;
+            }
             public Child(): base("child")
             {
                 Console.WriteLine("자식 생성자");
@@ -35,6 +40,15 @@ namespace ClassExample
         {
             Child child1 = new Child("abc");
             Child child2 = new Child();
+
+            Parent parent = new Parent();
+            Child child = new Child();
+
+            parent.CountParent();
+            child.CountChild();
+
+            Console.WriteLine(Parent.counter);
+            Console.WriteLine(Child.counter);
         }
     }
 }
