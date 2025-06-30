@@ -7,6 +7,7 @@ namespace ClassExample
         class Parent
         {
             public static int counter = 0;
+            public int variable = 273;
             public void CountParent()
             {
                 Parent.counter++;
@@ -18,6 +19,7 @@ namespace ClassExample
 
         private class Child: Parent
         {
+            public string variable = "hiding";
             public void CountChild()
             {
                 Parent.counter++;
@@ -55,6 +57,11 @@ namespace ClassExample
 
             Console.WriteLine(Parent.counter);
             Console.WriteLine(Child.counter);
+
+            // 하이딩
+            Child child3 = new Child();
+            Console.WriteLine(child3.variable);  // 문자열 
+            Console.WriteLine(((Parent)child3).variable);
         }
     }
 }
