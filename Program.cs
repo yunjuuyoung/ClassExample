@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ClassExample
 {
@@ -86,7 +87,19 @@ namespace ClassExample
 
             // 메서드 오버라이딩
             child3.Method0();  
-            ((Parent)child).Method0(); 
+            ((Parent)child).Method0();
+
+            // 강아지와 고양이로 알아보는 하이딩, 오버라이딩
+            // 메서드 하이딩, 오버라이딩 비교
+            List<Animal> Animals = new List<Animal>()
+            {
+                new Dog(), new Cat(), new Cat(), new Dog(),
+                new Dog(), new Cat(), new Dog(), new Cat()
+            };
+            foreach(var item in Animals)
+            {
+                item.Eat();
+            }
 
         }
     }
